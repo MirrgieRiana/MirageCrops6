@@ -92,7 +92,7 @@ public class LoaderItemMultiCrops
 				addMetaitem(multiCrops, i++, "cropWartGlass", false);
 				mod.onPostInit.add(() -> {
 					GameRegistry.addSmelting(
-						InitializerCrops.copy(AliItemStack.cropWartGlass, 4),
+						HItemStack.copy(AliItemStack.cropWartGlass, 4),
 						new ItemStack(Blocks.glass), 0);
 				});
 

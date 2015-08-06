@@ -166,7 +166,7 @@ class InitializerCrops
 
 		c = r("reedCircuit", 14, 4, s(1001, 0, 0, 0, 0), a(a1, "Metal", "Circuit", "Reed"));
 		setGain(c, cropTile -> AliItemStack.cropReedCircuit.copy());
-		setGain(c, range(2, 3), cropTile -> copy(AliItemStack.cropReedWire, cropTile.getSize() - 1));
+		setGain(c, range(2, 3), cropTile -> HItemStack.copy(AliItemStack.cropReedWire, cropTile.getSize() - 1));
 		setSizeAfterHarvest(c, array(4), cropTile -> rBw(cropTile, 1, 3));
 
 		c = r("berriesMatter", 9, 4, s(1002, 0, 0, 6, 0), a(a1, "Matter", "Purple"));
@@ -284,7 +284,7 @@ class InitializerCrops
 			setTextureRespect(c, max(3), AliCrop.vine);
 
 			c = r("vineFluoroberries", 9, 4, s(6, 0, 4, 3, 1), a(a3, a4, "Yellow", "Fluorine", "Berry"));
-			setGain(c, cropTile -> copy(AliItemStack.cropVineFluoroberries, rBw(cropTile, 1, 10)));
+			setGain(c, cropTile -> HItemStack.copy(AliItemStack.cropVineFluoroberries, rBw(cropTile, 1, 10)));
 		}
 	}
 
@@ -356,13 +356,6 @@ class InitializerCrops
 	private static Weighter<Supplier<ItemStack>> w()
 	{
 		return new Weighter<>();
-	}
-
-	static ItemStack copy(ItemStack itemStack, int stackSize)
-	{
-		ItemStack tmp = itemStack.copy();
-		tmp.stackSize = stackSize;
-		return tmp;
 	}
 
 	private static String[] a(String... arguments)
