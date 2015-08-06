@@ -1,0 +1,81 @@
+
+crop.MirageCrops6:spinach.name=Spinach
+crop.MirageCrops6:spinachRed.name=Blood Spinach
+crop.MirageCrops6:spinachBlue.name=Magic Spinach
+crop.MirageCrops6:spinachPoison.name=Poison Spinach
+crop.MirageCrops6:spinachFire.name=Fire Spinach
+crop.MirageCrops6:spinachIce.name=Ice Spinach
+crop.MirageCrops6:spinachSonic.name=Sonic Spinach
+
+crop.MirageCrops6:sarracenia.name=Sarracenia
+crop.MirageCrops6:sarraceniaLightning.name=Lightning Sarracenia
+crop.MirageCrops6:sarraceniaManeater.name=Man Eater
+crop.MirageCrops6:sarraceniaNagae.name=Levithia
+crop.MirageCrops6:sarraceniaDevil.name=Devil Predator
+crop.MirageCrops6:sarraceniaDreamy.name=Dream Eater
+
+crop.MirageCrops6:roseQuartz.name=Rose Quartz
+crop.MirageCrops6:chrysanthum.name=Chrysanthum
+crop.MirageCrops6:chrysanthumErodium.name=Erodium Chrysanthum
+crop.MirageCrops6:chrysanthumIridium.name=Iridium Chrysanthum
+crop.MirageCrops6:dreamflower.name=Dream Flower
+
+crop.MirageCrops6:reedCircuit.name=Thinking Reed
+crop.MirageCrops6:berriesMatter.name=Matter Berries
+crop.MirageCrops6:wartGlass.name=Glass Wart
+crop.MirageCrops6:wartMatter.name=Matter Wart
+
+crop.MirageCrops6:cactus.name=Cactus
+crop.MirageCrops6:cactusObsidian.name=Echinopsis obsianas
+crop.MirageCrops6:cactusSnow.name=Echinopsis glacies
+
+crop.MirageCrops6:fern.name=Fern
+crop.MirageCrops6:fernHoney.name=Dripping Fern
+crop.MirageCrops6:vine.name=Vine
+crop.MirageCrops6:vineApatite.name=Phosphoria
+crop.MirageCrops6:vineFluoroberries.name=Fluoroberries
+crop.MirageCrops6:vinePhoenix.name=Vinophenia
+
+crop.MirageCrops6:mandrake.name=Mandrake
+crop.MirageCrops6:wheatFire.name=Strongroots
+crop.MirageCrops6:potatoFire.name=Fire Potato
+crop.MirageCrops6:rice.name=Rice
+crop.MirageCrops6:coffeeJava.name=Java Coffee
+
+
+itemGroup.mirageCrop6=MirageCrops6
+
+
+item.cropSpinach.name=Spinach
+item.cropSpinachRed.name=Blood Spinach
+item.cropSpinachBlue.name=Magic Spinach
+item.cropSpinachPoison.name=Poison Spinach
+item.cropSpinachFire.name=Fire Spinach
+item.cropSpinachIce.name=Ice Spinach
+
+item.cropSarracenia.name=Sarracenia Leaf
+item.cropSarraceniaImmature.name=Immature Sarracenia Leaf
+item.cropSarraceniaLightning.name=Lightning Sarracenia Leaf
+item.cropSarraceniaManeater.name=Man Eater Leaf
+item.cropSarraceniaNagae.name=Levithia Leaf
+item.cropSarraceniaDevil.name=Devil Predator Leaf
+
+item.cropRose.name=Rose
+item.cropRoseQuartz.name=Rose Quartz
+item.gemCertusQuartz.name=Certus Quartz
+
+item.cropReedCircuit.name=Reed Circuit
+item.cropReedWire.name=Reed Wire
+
+item.cropWartGlass.name=Glass Wart
+item.dustGlass.name=Glass Dust
+
+item.cropCactus.name=Cactus
+item.cropCactusObsidian.name=Volcano Cactus
+item.cropCactusSnow.name=Snowfield Cactus
+
+item.gemApatite.name=Apatite
+item.cropVineFluoroberries.name=Fluoroberries
+
+item.cropMandrake.name=Mandrake
+item.gemSulfur.name=Sulfur
