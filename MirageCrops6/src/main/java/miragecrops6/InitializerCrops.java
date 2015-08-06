@@ -86,6 +86,7 @@ class InitializerCrops
 		setEmittedLight(c, array(5), 0);
 		addCropComponentSarracenia(c, array(4, 5), COLLISION, 2,
 			entityLiving -> entityLiving.getCreatureAttribute() == EnumCreatureAttribute.ARTHROPOD);
+		ModMirageCrops6.proxy.setCrossing(c);
 
 		c = r("sarraceniaLightning", 6, 5, s(4, 0, 5, 2, 1), a(a1, a2, "Purple", "Lightning"));
 		setGain(c, cropTile -> AliItemStack.cropSarraceniaLightning.copy());
@@ -94,6 +95,7 @@ class InitializerCrops
 		setEmittedLight(c, array(5), 12);
 		addCropComponentSarracenia(c, array(4, 5), COLLISION, 5,
 			entityLiving -> entityLiving.getCreatureAttribute() == EnumCreatureAttribute.ARTHROPOD);
+		ModMirageCrops6.proxy.setCrossing(c);
 
 		c = r("sarraceniaNagae", 10, 5, s(0, 4, 7, 5, 0), a(a1, a2, "Fish", "Food", "Edible", "Lightning", "Cloth"));
 		setGain(c, cropTile -> {
@@ -107,6 +109,7 @@ class InitializerCrops
 		setTextureRespect(c, max(4), AliCrop.sarracenia);
 		setEmittedLight(c, array(5), 8);
 		setTickerNagae(c, array(4));
+		ModMirageCrops6.proxy.setCrossing(c);
 
 		c = r("sarraceniaManeater", 8, 5, s(0, 0, 6, 3, 1), a(a1, a2, "Pink", "Red", "Blood", "Undead"));
 		setGain(c, cropTile -> AliItemStack.cropSarraceniaManeater.copy());
@@ -116,6 +119,7 @@ class InitializerCrops
 		addCropComponentSarracenia(c, array(4, 5), COLLISION, 3, entityLiving -> entityLiving instanceof EntityZombie);
 		addCropComponentSarracenia(c, array(4, 5), COLLISION, 3, entityLiving -> entityLiving instanceof EntityVillager);
 		addCropComponentSarracenia(c, array(4, 5), COLLISION, 1, entityLiving -> entityLiving instanceof EntityPlayerMP);
+		ModMirageCrops6.proxy.setCrossing(c);
 
 		c = r("sarraceniaDevil", 14, 5, s(0, 0, 8, 3, 0), a(a1, a2, "Red", "Redstone", "Undead", "Blood"));
 		setGain(c, cropTile -> AliItemStack.cropSarraceniaDevil.copy());
@@ -124,6 +128,7 @@ class InitializerCrops
 		setEmittedLight(c, array(5), 4);
 		addCropComponentSarracenia(c, array(4, 5), COLLISION, 3,
 			entityLiving -> entityLiving.getCreatureAttribute() == EnumCreatureAttribute.UNDEAD);
+		ModMirageCrops6.proxy.setCrossing(c);
 
 	}
 
@@ -168,6 +173,7 @@ class InitializerCrops
 		setGain(c, cropTile -> AliItemStack.cropReedCircuit.copy());
 		setGain(c, range(2, 3), cropTile -> HItemStack.copy(AliItemStack.cropReedWire, cropTile.getSize() - 1));
 		setSizeAfterHarvest(c, array(4), cropTile -> rBw(cropTile, 1, 3));
+		ModMirageCrops6.proxy.setCrossing(c);
 
 		c = r("berriesMatter", 9, 4, s(1002, 0, 0, 6, 0), a(a1, "Matter", "Purple"));
 		setGain(c, cropTile -> w()
@@ -187,6 +193,7 @@ class InitializerCrops
 			.entry(300, () -> new ItemStack(Items.glowstone_dust))
 			.entry(200, () -> new ItemStack(Items.dye, 1, 4))
 			.get(cropTile.getWorld().rand).get());
+		ModMirageCrops6.proxy.setCrossing(c);
 
 		c = r("wartGlass", 8, 3, s(1000, 0, 0, 0, 0), a(a1, "Glass", "Silica"));
 		setGain(c, cropTile -> w()
@@ -226,12 +233,14 @@ class InitializerCrops
 		setGain(c, cropTile -> AliItemStack.cropCactus.copy());
 		addCropComponentCactus(c, array(4), COLLISION, 1.0f);
 		registerBaseSeed(c, () -> HItemStack.copy(AliItemStack.cropCactus, 1));
+		ModMirageCrops6.proxy.setCrossing(c);
 
 		c = r("cactusObsidian", 7, 4, s(3, 0, 6, 3, 0), a(a1, a2, "Purple", "Black", "Obsidian", "Glass", "Fire"));
 		setGain(c, cropTile -> AliItemStack.cropCactusObsidian.copy());
 		setTextureRespect(c, max(3), AliCrop.cactus);
 		addCropComponentCactus(c, array(4), COLLISION, 2.0f);
 		registerBaseSeed(c, () -> HItemStack.copy(AliItemStack.cropCactusObsidian, 1));
+		ModMirageCrops6.proxy.setCrossing(c);
 
 		c = r("cactusSnow", 6, 5, s(2, 0, 5, 2, 0), a(a1, a2, "White", "Ice", "Snow"));
 		setGain(c, cropTile -> w()
@@ -246,6 +255,8 @@ class InitializerCrops
 		addCropComponentCactus(c, array(4, 5), COLLISION | CLICK, 1.0f);
 		addCropComponentSlow(c, array(5), COLLISION);
 		registerBaseSeed(c, () -> HItemStack.copy(AliItemStack.cropCactusSnow, 1));
+		ModMirageCrops6.proxy.setCrossing(c);
+
 	}
 
 	private static void registerWeeds()
@@ -260,10 +271,12 @@ class InitializerCrops
 			c = r("fern", 1, 4, s(0, 0, 0, 1, 4), a(a1, a2, a5, "Weed"));
 			setGain(c, cropTile -> new ItemStack(Blocks.tallgrass, 1, 2));
 			registerBaseSeed(c, () -> new ItemStack(Blocks.tallgrass, 1, 2));
+			ModMirageCrops6.proxy.setCrossing(c);
 
 			c = r("fernHoney", 5, 5, s(0, 3, 0, 1, 2), a(a1, a2, a5, "Bee", "Honey", "Edible"));
 			setGain(c, cropTile -> null);
 			setTextureRespect(c, max(4), AliCrop.fern);
+			ModMirageCrops6.proxy.setCrossing(c);
 		}
 
 		{
@@ -273,6 +286,7 @@ class InitializerCrops
 			c = r("vine", 1, 4, s(0, 0, 1, 0, 4), a(a3, a4, a5, "Weed"));
 			setGain(c, cropTile -> new ItemStack(Blocks.vine));
 			registerBaseSeed(c, () -> new ItemStack(Blocks.vine));
+			ModMirageCrops6.proxy.setCrossing(c);
 
 			c = r("vineApatite", 6, 4, s(3, 0, 0, 2, 1), a(a3, a4, a5, "Blue", "Apatite", "Crystal", "Phosphorus"));
 			setGain(c, cropTile -> w()
@@ -282,9 +296,11 @@ class InitializerCrops
 			setGrowthLightRegion(c, array(3), 15, 15);
 			setGrowthDurationRatio(c, array(3), 5);
 			setTextureRespect(c, max(3), AliCrop.vine);
+			ModMirageCrops6.proxy.setCrossing(c);
 
 			c = r("vineFluoroberries", 9, 4, s(6, 0, 4, 3, 1), a(a3, a4, "Yellow", "Fluorine", "Berry"));
 			setGain(c, cropTile -> HItemStack.copy(AliItemStack.cropVineFluoroberries, rBw(cropTile, 1, 10)));
+			ModMirageCrops6.proxy.setCrossing(c);
 		}
 	}
 
@@ -313,14 +329,18 @@ class InitializerCrops
 		setGain(c, cropTile -> null);
 
 		c = r("coffeeJava", 6, 4, s(1, 4, 0, 1, 0), a("Coffee", "Leaves", "Java"));
+		ModMirageCrops6.proxy.setCrossing(c);
 		setGain(c, cropTile -> null);
 
 		c = r("mandrake", 5, 4, s(5, 3, 5, 2, 3), a("Mandrake"));
 		setGain(c, cropTile -> AliItemStack.cropMandrake.copy());
+		ModMirageCrops6.proxy.setCrossing(c);
 
 		c = r("dreamflower", 7, 4, s(0, 0, 0, 3, 0), a("Dream", "Flower", "Mirage"));
 		setGain(c, cropTile -> null);
 		setEmittedLight(c, array(4), 8);
+		ModMirageCrops6.proxy.setCrossing(c);
+
 	}
 
 	private static class Weighter<T>
