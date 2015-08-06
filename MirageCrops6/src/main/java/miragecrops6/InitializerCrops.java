@@ -26,7 +26,14 @@ import net.minecraft.item.ItemStack;
 class InitializerCrops
 {
 
-	public static void registerCropCards()
+	private ModMirageCrops6 mod;
+
+	public InitializerCrops(ModMirageCrops6 mod)
+	{
+		this.mod = mod;
+	}
+
+	public void registerCropCards()
 	{
 		registerSpinaches();
 		registerSarracenias();
@@ -37,7 +44,7 @@ class InitializerCrops
 		registerOthers();
 	}
 
-	private static void registerSpinaches()
+	private void registerSpinaches()
 	{
 		CropCardMirageCrops c;
 		String a1 = "Spinach";
@@ -74,7 +81,8 @@ class InitializerCrops
 
 	}
 
-	private static void registerSarracenias()
+	@SuppressWarnings("static-method")
+	private void registerSarracenias()
 	{
 		CropCardMirageCrops c;
 		String a1 = "Sarracenia";
@@ -127,7 +135,7 @@ class InitializerCrops
 
 	}
 
-	private static void registerFlowers()
+	private void registerFlowers()
 	{
 		CropCardMirageCrops c;
 		String a1 = "Chrysanthum";
@@ -159,7 +167,7 @@ class InitializerCrops
 			.get(cropTile.getWorld().rand).get());
 	}
 
-	private static void registerIndustrials()
+	private void registerIndustrials()
 	{
 		CropCardMirageCrops c;
 		String a1 = "Industrial";
@@ -216,7 +224,7 @@ class InitializerCrops
 			.get(cropTile.getWorld().rand).get());
 	}
 
-	private static void registerCactuses()
+	private void registerCactuses()
 	{
 		CropCardMirageCrops c;
 		String a1 = "Cactus";
@@ -248,7 +256,7 @@ class InitializerCrops
 		registerBaseSeed(c, () -> HItemStack.copy(AliItemStack.cropCactusSnow, 1));
 	}
 
-	private static void registerWeeds()
+	private void registerWeeds()
 	{
 		CropCardMirageCrops c;
 		String a5 = "Green";
@@ -288,7 +296,7 @@ class InitializerCrops
 		}
 	}
 
-	private static void registerOthers()
+	private void registerOthers()
 	{
 		CropCardMirageCrops c;
 
@@ -323,7 +331,7 @@ class InitializerCrops
 		setEmittedLight(c, array(4), 8);
 	}
 
-	private static class Weighter<T>
+	private class Weighter<T>
 	{
 
 		private double sumWeight;
@@ -353,7 +361,7 @@ class InitializerCrops
 
 	}
 
-	private static Weighter<Supplier<ItemStack>> w()
+	private Weighter<Supplier<ItemStack>> w()
 	{
 		return new Weighter<>();
 	}
@@ -397,9 +405,11 @@ class InitializerCrops
 		return cropTile.getWorld().rand.nextInt(max - min + 1) + min;
 	}
 
-	private static void registerBaseSeed(CropCardMirageCrops cropCardMirageCrops, Supplier<ItemStack> itemStack)
+	private void registerBaseSeed(CropCardMirageCrops cropCardMirageCrops, Supplier<ItemStack> itemStack)
 	{
-		Crops.instance.registerBaseSeed(itemStack.get(), cropCardMirageCrops, 1, 0, 0, 0);
+		mod.onPostInit.add(() -> {
+			Crops.instance.registerBaseSeed(itemStack.get(), cropCardMirageCrops, 1, 0, 0, 0);
+		});
 	}
 
 }

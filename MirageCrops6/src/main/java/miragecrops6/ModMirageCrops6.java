@@ -44,7 +44,7 @@ public class ModMirageCrops6
 		AliItem.multiCrops = new LoaderItemMultiCrops(this).loadItemMultiCrops();
 
 		// Crop
-		InitializerCrops.registerCropCards();
+		new InitializerCrops(this).registerCropCards();
 
 	}
 
