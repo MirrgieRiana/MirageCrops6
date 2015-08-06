@@ -1,5 +1,7 @@
 package miragecrops6;
 
+import ic2.api.recipe.RecipeInputItemStack;
+
 import java.util.function.Supplier;
 
 import miragecrops6.MetaitemPluginCrops.Arguments;
@@ -9,6 +11,7 @@ import mirrg.minecraft.item.multi.copper.ItemMulti;
 import mirrg.minecraft.item.multi.copper.Metaitem;
 import mirrg.minecraft.itemstack.mir60.HItemStack;
 import mirrg.minecraft.itemstack.mir60.HOreDictionary;
+import mirrg.minecraft.mods.mir60.HIC2;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
@@ -65,9 +68,23 @@ class LoaderItemMultiCrops
 			{
 				int partition = 0;
 				int i = partition * PARTITION_SIZE + domain * DOMAIN_SIZE;
+
 				addMetaitem(multiCrops, i++, "cropRose", true);
+
 				addMetaitem(multiCrops, i++, "cropRoseQuartz", true);
+				mod.onPostInit.add(() -> {
+					HOreDictionary.findFirst("dustTinyNetherQuartz", ore -> {
+						HIC2.getMachineRecipeManager("extractor").ifPresent(machineRecipeManager -> {
+							machineRecipeManager.addRecipe(
+								new RecipeInputItemStack(AliItemStack.cropRoseQuartz.copy()),
+								null,
+								ore);
+						});
+					});
+				});
+
 				addMetaitem(multiCrops, i++, "gemCertusQuartz", true);
+
 			}
 		}
 		{
