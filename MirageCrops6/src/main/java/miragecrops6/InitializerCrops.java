@@ -13,6 +13,7 @@ import miragecrops6.alis.AliCrop;
 import miragecrops6.alis.AliItemStack;
 import miragecrops6.crop.CropCardMirageCrops;
 import miragecrops6.crop.CropCardMirageCrops.CropCardMirageCropsParameter;
+import mirrg.minecraft.itemstack.mir60.HItemStack;
 import mirrg.struct.hydrogen.Tuple;
 import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.monster.EntityZombie;
@@ -41,23 +42,36 @@ class InitializerCrops
 		CropCardMirageCrops c;
 		String a1 = "Spinach";
 		String a2 = "SpinachGroup";
+
 		c = r("spinach", 2, 4, s(0, 4, 0, 1, 0), a(a1, a2, "Food", "Edible"));
 		setGain(c, cropTile -> AliItemStack.cropSpinach.copy());
+		registerBaseSeed(c, () -> HItemStack.copy(AliItemStack.cropSpinach, 4));
+
 		c = r("spinachRed", 3, 4, s(2, 2, 0, 3, 0), a(a1, a2, "Red", "Undead", "Blood"));
 		setGain(c, cropTile -> AliItemStack.cropSpinachRed.copy());
 		setTextureRespect(c, max(3), AliCrop.spinach);
+		registerBaseSeed(c, () -> HItemStack.copy(AliItemStack.cropSpinachRed, 4));
+
 		c = r("spinachBlue", 5, 4, s(4, 1, 0, 3, 0), a(a1, a2, "Blue", "Magic"));
 		setGain(c, cropTile -> AliItemStack.cropSpinachBlue.copy());
 		setTextureRespect(c, max(3), AliCrop.spinach);
+		registerBaseSeed(c, () -> HItemStack.copy(AliItemStack.cropSpinachBlue, 4));
+
 		c = r("spinachPoison", 8, 4, s(6, 0, 4, 1, 0), a(a1, a2, "Purple", "Poizon", "Toxic"));
 		setGain(c, cropTile -> AliItemStack.cropSpinachPoison.copy());
 		setTextureRespect(c, max(3), AliCrop.spinach);
+		registerBaseSeed(c, () -> HItemStack.copy(AliItemStack.cropSpinachPoison, 4));
+
 		c = r("spinachFire", 10, 4, s(2, 0, 6, 1, 0), a(a1, a2, "Orange", "Fire", "Flame"));
 		setGain(c, cropTile -> AliItemStack.cropSpinachFire.copy());
 		setTextureRespect(c, max(3), AliCrop.spinach);
+		registerBaseSeed(c, () -> HItemStack.copy(AliItemStack.cropSpinachFire, 4));
+
 		c = r("spinachIce", 12, 4, s(1, 1, 1, 1, 0), a(a1, a2, "White", "Blue", "Ice"));
 		setGain(c, cropTile -> AliItemStack.cropSpinachIce.copy());
 		setTextureRespect(c, max(3), AliCrop.spinach);
+		registerBaseSeed(c, () -> HItemStack.copy(AliItemStack.cropSpinachIce, 4));
+
 	}
 
 	private static void registerSarracenias()
@@ -211,11 +225,13 @@ class InitializerCrops
 		c = r("cactus", 2, 4, s(1, 0, 4, 4, 1), a(a1, a2, "Green"));
 		setGain(c, cropTile -> AliItemStack.cropCactus.copy());
 		addCropComponentCactus(c, array(4), COLLISION, 1.0f);
+		registerBaseSeed(c, () -> HItemStack.copy(AliItemStack.cropCactus, 1));
 
 		c = r("cactusObsidian", 7, 4, s(3, 0, 6, 3, 0), a(a1, a2, "Purple", "Black", "Obsidian", "Glass", "Fire"));
 		setGain(c, cropTile -> AliItemStack.cropCactusObsidian.copy());
 		setTextureRespect(c, max(3), AliCrop.cactus);
 		addCropComponentCactus(c, array(4), COLLISION, 2.0f);
+		registerBaseSeed(c, () -> HItemStack.copy(AliItemStack.cropCactusObsidian, 1));
 
 		c = r("cactusSnow", 6, 5, s(2, 0, 5, 2, 0), a(a1, a2, "White", "Ice", "Snow"));
 		setGain(c, cropTile -> w()
@@ -229,6 +245,7 @@ class InitializerCrops
 		setTextureRespect(c, max(3), AliCrop.cactus);
 		addCropComponentCactus(c, array(4, 5), COLLISION | CLICK, 1.0f);
 		addCropComponentSlow(c, array(5), COLLISION);
+		registerBaseSeed(c, () -> HItemStack.copy(AliItemStack.cropCactusSnow, 1));
 	}
 
 	private static void registerWeeds()
@@ -242,6 +259,7 @@ class InitializerCrops
 
 			c = r("fern", 1, 4, s(0, 0, 0, 1, 4), a(a1, a2, a5, "Weed"));
 			setGain(c, cropTile -> new ItemStack(Blocks.tallgrass, 1, 2));
+			registerBaseSeed(c, () -> new ItemStack(Blocks.tallgrass, 1, 2));
 
 			c = r("fernHoney", 5, 5, s(0, 3, 0, 1, 2), a(a1, a2, a5, "Bee", "Honey", "Edible"));
 			setGain(c, cropTile -> null);
@@ -254,6 +272,7 @@ class InitializerCrops
 
 			c = r("vine", 1, 4, s(0, 0, 1, 0, 4), a(a3, a4, a5, "Weed"));
 			setGain(c, cropTile -> new ItemStack(Blocks.vine));
+			registerBaseSeed(c, () -> new ItemStack(Blocks.vine));
 
 			c = r("vineApatite", 6, 4, s(3, 0, 0, 2, 1), a(a3, a4, a5, "Blue", "Apatite", "Crystal", "Phosphorus"));
 			setGain(c, cropTile -> w()
@@ -383,6 +402,11 @@ class InitializerCrops
 	private static int rBw(ICropTile cropTile, int min, int max)
 	{
 		return cropTile.getWorld().rand.nextInt(max - min + 1) + min;
+	}
+
+	private static void registerBaseSeed(CropCardMirageCrops cropCardMirageCrops, Supplier<ItemStack> itemStack)
+	{
+		Crops.instance.registerBaseSeed(itemStack.get(), cropCardMirageCrops, 1, 0, 0, 0);
 	}
 
 }
