@@ -7,6 +7,7 @@ import miragecrops6.alis.AliItem;
 import miragecrops6.alis.AliItemStack;
 import mirrg.minecraft.item.multi.copper.ItemMulti;
 import mirrg.minecraft.item.multi.copper.Metaitem;
+import mirrg.minecraft.itemstack.mir60.HItemStack;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
