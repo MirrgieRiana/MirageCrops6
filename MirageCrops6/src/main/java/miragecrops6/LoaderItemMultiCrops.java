@@ -17,7 +17,7 @@ import net.minecraftforge.oredict.ShapelessOreRecipe;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 @SuppressWarnings("static-method")
-public class LoaderItemMultiCrops
+class LoaderItemMultiCrops
 {
 
 	private ModMirageCrops6 mod;
