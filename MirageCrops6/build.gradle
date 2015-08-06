@@ -56,7 +56,14 @@ processResources
         include 'mcmod.info'
                 
         // replace version and mcversion
-        expand 'version':project.version, 'mcversion':project.minecraft.version
+        expand(
+            "modid":"MirageCrops6",
+            "name":"MirageCrops 6",
+            "description":"Adding Strange IC2Crops.",
+            'version':project.version,
+            'mcversion':project.minecraft.version,
+            "author":"Mirrgie Riana",
+            "credits":"IC2Exp creators")
     }
         
     // copy everything else, thats not the mcmod.info
