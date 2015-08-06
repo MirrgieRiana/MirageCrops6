@@ -65,8 +65,9 @@ item.cropRoseQuartz.name=薔薇水晶の花
 item.gemCertusQuartz.name=ケルタスクォーツ
 
 item.cropReedCircuit.name=配線で囲われた脳
+item.cropReedCircuit.information=機械部品として使えそうだ。
 item.cropReedWire.name=ゴムで覆われた神経
-item.circuitBasic.name=基礎回路
+item.cropReedWire.information=機械部品として使えそうだ。
 
 item.cropWartGlass.name=グラスワート
 item.dustGlass.name=ガラスの粉

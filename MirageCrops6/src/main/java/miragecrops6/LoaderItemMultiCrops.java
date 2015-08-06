@@ -8,6 +8,7 @@ import miragecrops6.alis.AliItemStack;
 import mirrg.minecraft.item.multi.copper.ItemMulti;
 import mirrg.minecraft.item.multi.copper.Metaitem;
 import mirrg.minecraft.itemstack.mir60.HItemStack;
+import mirrg.minecraft.itemstack.mir60.HOreDictionary;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
@@ -77,17 +78,21 @@ class LoaderItemMultiCrops
 
 				addMetaitem(multiCrops, i++, "cropReedCircuit", true);
 				mod.onPostInit.add(() -> {
-					GameRegistry.addRecipe(new ShapelessOreRecipe(
-						AliItemStack.circuitBasic,
-						AliItemStack.cropReedCircuit));
+					HOreDictionary.findFirst("circuitBasic", ore -> {
+						GameRegistry.addRecipe(new ShapelessOreRecipe(
+							ore,
+							AliItemStack.cropReedCircuit));
+					});
 				});
 
 				addMetaitem(multiCrops, i++, "cropReedWire", true);
-				//onInit.add(() -> {
-				//	OreDictionary.registerOre("wireCoveredCopper", AliItemStack.cropReedWire);
-				//}); // TODO
-
-				addMetaitem(multiCrops, i++, "circuitBasic", true);
+				mod.onPostInit.add(() -> {
+					HOreDictionary.findFirst("craftingWireCopper", ore -> {
+						GameRegistry.addRecipe(new ShapelessOreRecipe(
+							ore,
+							AliItemStack.cropReedWire));
+					});
+				});
 
 			}
 			{
