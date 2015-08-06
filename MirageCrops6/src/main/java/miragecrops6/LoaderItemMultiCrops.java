@@ -20,19 +20,11 @@ import net.minecraftforge.oredict.ShapedOreRecipe;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-@SuppressWarnings("static-method")
 class LoaderItemMultiCrops
 {
 
-	private ModMirageCrops6 mod;
-
-	public LoaderItemMultiCrops(ModMirageCrops6 mod)
-	{
-		this.mod = mod;
-	}
-
 	@SuppressWarnings("unused")
-	public ItemMulti loadItemMultiCrops()
+	public static ItemMulti loadItemMultiCrops()
 	{
 		ItemMulti multiCrops = new ItemMulti();
 		multiCrops.setCreativeTab(ModMirageCrops6.creativeTab);
@@ -72,7 +64,7 @@ class LoaderItemMultiCrops
 				addMetaitem(multiCrops, i++, "cropRose", true);
 
 				addMetaitem(multiCrops, i++, "cropRoseQuartz", true);
-				mod.onPostInit.add(() -> {
+				ModMirageCrops6.onPostInit.add(() -> {
 					HOreDictionary.findFirst("dustTinyNetherQuartz", ore -> {
 						HIC2.getMachineRecipeManager("extractor").ifPresent(machineRecipeManager -> {
 							machineRecipeManager.addRecipe(
@@ -94,7 +86,7 @@ class LoaderItemMultiCrops
 				int i = partition * PARTITION_SIZE + domain * DOMAIN_SIZE;
 
 				addMetaitem(multiCrops, i++, "cropReedCircuit", true);
-				mod.onPostInit.add(() -> {
+				ModMirageCrops6.onPostInit.add(() -> {
 					HOreDictionary.findFirst("circuitBasic", ore -> {
 						GameRegistry.addRecipe(new ShapelessOreRecipe(
 							ore,
@@ -103,7 +95,7 @@ class LoaderItemMultiCrops
 				});
 
 				addMetaitem(multiCrops, i++, "cropReedWire", true);
-				mod.onPostInit.add(() -> {
+				ModMirageCrops6.onPostInit.add(() -> {
 					HOreDictionary.findFirst("craftingWireCopper", ore -> {
 						GameRegistry.addRecipe(new ShapelessOreRecipe(
 							ore,
@@ -117,14 +109,14 @@ class LoaderItemMultiCrops
 				int i = partition * PARTITION_SIZE + domain * DOMAIN_SIZE;
 
 				addMetaitem(multiCrops, i++, "cropWartGlass", false);
-				mod.onPostInit.add(() -> {
+				ModMirageCrops6.onPostInit.add(() -> {
 					GameRegistry.addSmelting(
 						HItemStack.copy(AliItemStack.cropWartGlass, 4),
 						new ItemStack(Blocks.glass), 0);
 				});
 
 				addMetaitem(multiCrops, i++, "dustGlass", true);
-				mod.onPostInit.add(() -> {
+				ModMirageCrops6.onPostInit.add(() -> {
 					GameRegistry.addSmelting(AliItemStack.dustGlass, new ItemStack(Blocks.glass), 0);
 				});
 			}
@@ -136,14 +128,14 @@ class LoaderItemMultiCrops
 				int i = partition * PARTITION_SIZE + domain * DOMAIN_SIZE;
 
 				addMetaitem(multiCrops, i++, "cropCactus", false);
-				mod.onPostInit.add(() -> {
+				ModMirageCrops6.onPostInit.add(() -> {
 					GameRegistry.addRecipe(new ShapelessOreRecipe(
 						Blocks.cactus,
 						AliItemStack.cropCactus));
 				});
 
 				addMetaitem(multiCrops, i++, "cropCactusObsidian", false);
-				mod.onPostInit.add(() -> {
+				ModMirageCrops6.onPostInit.add(() -> {
 					GameRegistry.addRecipe(new ShapedOreRecipe(
 						Blocks.obsidian,
 						"XXX",
@@ -158,7 +150,7 @@ class LoaderItemMultiCrops
 				});
 
 				addMetaitem(multiCrops, i++, "cropCactusSnow", false);
-				mod.onPostInit.add(() -> {
+				ModMirageCrops6.onPostInit.add(() -> {
 					GameRegistry.addRecipe(new ShapedOreRecipe(
 						Blocks.ice,
 						"XX",
@@ -205,7 +197,7 @@ class LoaderItemMultiCrops
 	private final static int PARTITION_SIZE = 32;
 	private final static int DOMAIN_SIZE = 1024;
 
-	private void addMetaitem(ItemMulti itemMulti, int metaid, String name, boolean registerOreDictionary)
+	private static void addMetaitem(ItemMulti itemMulti, int metaid, String name, boolean registerOreDictionary)
 	{
 		while (metaid >= itemMulti.metaitems.size()) {
 			itemMulti.metaitems.add(null);
@@ -228,7 +220,7 @@ class LoaderItemMultiCrops
 		});
 	}
 
-	private Metaitem createMetaitem(ItemMulti itemMulti, int metaid, String name)
+	private static Metaitem createMetaitem(ItemMulti itemMulti, int metaid, String name)
 	{
 		return new MetaitemPluginCrops(
 			itemMulti.getSuper(),
@@ -236,9 +228,9 @@ class LoaderItemMultiCrops
 			new Arguments(ModMirageCrops6.DOMAIN + ":crop/" + name, 0xffffff, name));
 	}
 
-	private void schedule(String name, Supplier<ItemStack> supplier)
+	private static void schedule(String name, Supplier<ItemStack> supplier)
 	{
-		mod.onInit.add(() -> {
+		ModMirageCrops6.onInit.add(() -> {
 			try {
 				AliItemStack.class.getField(name).set(null, supplier.get());
 			} catch (Exception e) {

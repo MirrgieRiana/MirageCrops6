@@ -45,14 +45,14 @@ public class ModMirageCrops6
 	{
 
 		// アイテム
-		AliItem.multiCrops = new LoaderItemMultiCrops(this).loadItemMultiCrops();
+		AliItem.multiCrops = LoaderItemMultiCrops.loadItemMultiCrops();
 
 		// Crop
-		new InitializerCrops(this).registerCropCards();
+		InitializerCrops.registerCropCards();
 
 	}
 
-	public ArrayList<Runnable> onInit = new ArrayList<>();
+	public static ArrayList<Runnable> onInit = new ArrayList<>();
 
 	@EventHandler
 	public void handle(FMLInitializationEvent event)
@@ -60,7 +60,7 @@ public class ModMirageCrops6
 		onInit.forEach(Runnable::run);
 	}
 
-	public ArrayList<Runnable> onPostInit = new ArrayList<>();
+	public static ArrayList<Runnable> onPostInit = new ArrayList<>();
 
 	@EventHandler
 	public void handle(FMLPostInitializationEvent event)
