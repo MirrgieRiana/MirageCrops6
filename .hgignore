@@ -34,3 +34,5 @@ MirageCrops6/build/.gitignore
 MirageCrops6/forge-1.7.10-10.13.3.1403-1.7.10-changelog.txt
 MirageCrops6/eclipse/backup/
 MirageCrops6/eclipse/.recommenders/
+MirageCrops6/eclipse/asm/
+MirageCrops6/eclipse/crash-reports/
