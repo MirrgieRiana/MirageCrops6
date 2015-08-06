@@ -188,7 +188,7 @@ class InitializerCrops
 			.entry(200, () -> new ItemStack(Items.dye, 1, 4))
 			.get(cropTile.getWorld().rand).get());
 
-		c = r("wartGlass", 8, 3, s(1000, 0, 0, 0, 0), a(a1, "Glass"));
+		c = r("wartGlass", 8, 3, s(1000, 0, 0, 0, 0), a(a1, "Glass", "Silica"));
 		setGain(c, cropTile -> w()
 			.entry(100, () -> AliItemStack.cropWartGlass.copy())
 			.entry(10, () -> AliItemStack.dustGlass.copy())
