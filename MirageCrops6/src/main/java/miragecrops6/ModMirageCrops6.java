@@ -8,6 +8,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
+import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
@@ -30,6 +31,9 @@ public class ModMirageCrops6
 			return AliItem.multiCrops;
 		}
 	};
+
+	@SidedProxy(clientSide = "miragecrops6.ProxyClient", serverSide = "miragecrops6.ProxyServer")
+	public static IProxy proxy;
 
 	public ModMirageCrops6()
 	{
