@@ -76,14 +76,18 @@ class LoaderItemMultiCrops
 				int i = partition * PARTITION_SIZE + domain * DOMAIN_SIZE;
 
 				addMetaitem(multiCrops, i++, "cropReedCircuit", true);
-				mod.onInit.add(() -> {
-					OreDictionary.registerOre("circuitBasic", AliItemStack.cropReedCircuit);
+				mod.onPostInit.add(() -> {
+					GameRegistry.addRecipe(new ShapelessOreRecipe(
+						AliItemStack.circuitBasic,
+						AliItemStack.cropReedCircuit));
 				});
 
 				addMetaitem(multiCrops, i++, "cropReedWire", true);
 				//onInit.add(() -> {
 				//	OreDictionary.registerOre("wireCoveredCopper", AliItemStack.cropReedWire);
 				//}); // TODO
+
+				addMetaitem(multiCrops, i++, "circuitBasic", true);
 
 			}
 			{

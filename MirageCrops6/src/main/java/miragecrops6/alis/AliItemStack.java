@@ -31,6 +31,7 @@ public class AliItemStack
 		// 300
 		cropReedCircuit,
 		cropReedWire,
+		circuitBasic,
 		cropWartGlass,
 		dustGlass,
 

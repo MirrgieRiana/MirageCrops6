@@ -66,6 +66,7 @@ item.gemCertusQuartz.name=Certus Quartz
 
 item.cropReedCircuit.name=Reed Circuit
 item.cropReedWire.name=Reed Wire
+item.circuitBasic.name=Basic Circuit
 
 item.cropWartGlass.name=Glass Wart
 item.dustGlass.name=Glass Dust
